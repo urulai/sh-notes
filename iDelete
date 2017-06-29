@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "Files to delete => ($files)"
+
+for i in $files;
+do
+	echo -n "Are you sure you want to delete '$i'?(y/n)"
+	read text
+        echo "You typed: $text"
+	
+	if [ $text = "y" ]; then
+		rm $i
+	fi
+done
+

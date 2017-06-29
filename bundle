@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# To unbundle, use sh filename
+echo '#Files to be bundled'
+echo '#$*'
+
+for i;
+do
+	echo "cat > $i <<'End of $i'"
+	cat $i 
+	echo "End of $i"
+done
+
+
