@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ $# != 1 ]; then
+  	echo "[Usage]: ./trap file"
+	exit 1
+fi
+ 
+trap 'echo; echo "Removing temp file: $1"; rm $1; exit 1' 1 2 15
+
+cat > $1 <<EOF
+dummy file
+EOF
+
+while who >/dev/null
+do
+	echo 'Waiting for interrupt'
+	sleep 10
+done

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Check whether a user is logged in.
+
+if [ $# != 1 ]; then
+	echo '[Usage]: checkLogin <username>' 1>&2
+	exit 1
+fi
+
+if who | grep $1 > /dev/null; then
+	echo "$1 has logged in"
+else
+	echo "No user with name '$1' has logged in"
+fi
